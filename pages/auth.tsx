@@ -2,14 +2,12 @@ import Input from "@/components/Input";
 import { useCallback, useState } from "react";
 import axios from 'axios';
 import { signIn } from 'next-auth/react';
-import { useRouter } from "next/router";
 
 import {FcGoogle} from 'react-icons/fc';
 import {FaGithub} from 'react-icons/fa';
 
 const Auth = () => {
 
-    const router = useRouter();
 
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
@@ -22,22 +20,20 @@ const Auth = () => {
     },[]);
 
     const login = useCallback(async() => {
-        try{
+        try {
             await signIn('credentials', {
                 email, 
                 password,
-                redirect: false,
-                callbackUrl:'/'
+                callbackUrl:'/profiles'
             });
-            router.push('/');
-        }catch (error){
+        } catch (error) {
             console.log(error);
         }
-    },[email, password, router]);
+    },[email, password]);
 
     const register = useCallback (async ()=> {
         try {   
-            await axios.post('api/register', { 
+            await axios.post('/api/register', { 
                 email,
                 name, 
                 password 
@@ -134,7 +130,7 @@ const Auth = () => {
                             justify-center
                         ">
                             <div 
-                            onClick={()=> signIn('google', {callbackUrl: '/'})}
+                            onClick={()=> signIn('google', {callbackUrl: '/profiles'})}
                             className="
                                 w-10
                                 h-10
@@ -151,7 +147,7 @@ const Auth = () => {
                             
                             </div>    
                             <div 
-                            onClick={()=> signIn('github', { callbackUrl: '/' })}
+                            onClick={()=> signIn('github', { callbackUrl: '/profiles' })}
                             className="
                                 w-10
                                 h-10
