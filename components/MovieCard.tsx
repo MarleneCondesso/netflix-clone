@@ -1,7 +1,7 @@
 import React from 'react';
 import { BsFillPlayFill } from 'react-icons/bs';
 import FavoriteButton from './FavoriteButton';
-
+import { useRouter } from 'next/router';
 
 interface MovieCardProps{
     data: Record<string, any>;
@@ -10,6 +10,9 @@ interface MovieCardProps{
 const MovieCard: React.FC<MovieCardProps> = ({
     data
 }) => {
+
+    const router = useRouter();
+
  return (
     <div className='
         group 
@@ -75,7 +78,7 @@ const MovieCard: React.FC<MovieCardProps> = ({
                     items-center
                     gap-3'
                 >
-                    <div onClick={()=> {}} className='
+                    <div onClick={()=> router.push(`/watch/${data?.id}`)} className='
                         cursor-pointer
                         w-6
                         h-6
@@ -89,7 +92,7 @@ const MovieCard: React.FC<MovieCardProps> = ({
                         transition
                         hover:bg-neutral-300'
                     >
-                        <BsFillPlayFill size={30}/>
+                        <BsFillPlayFill size={30} />
                     </div>
                     <FavoriteButton movieId={data?.id}/>
                 </div>
