@@ -2,5 +2,6 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/watch/[movieId]": "pages/watch/[movieId].js"
+  "/": "pages/index.js",
+  "/api/current": "pages/api/current.js"
 }

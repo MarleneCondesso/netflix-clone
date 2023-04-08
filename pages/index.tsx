@@ -1,7 +1,9 @@
 import Billboard from '@/components/Billboard';
+import InfoModal from '@/components/InfoModal';
 import MovieList from '@/components/MovieList';
 import Navbar from '@/components/Navbar';
 import useFavorites from '@/hooks/useFavorite';
+import useInfoModal from '@/hooks/useInfoModel';
 import useMovieList from '@/hooks/useMovieList';
 import { NextPageContext } from 'next';
 import { getSession } from 'next-auth/react';
@@ -28,9 +30,11 @@ const Home = () => {
   const { data: movies = [] } = useMovieList();
 
   const { data: favorites = [] } = useFavorites();
+  const {isOpen, closeModal } = useInfoModal();
 
   return (
     <>
+      <InfoModal onClose={closeModal} visible={isOpen}/>
       <Navbar />
       <Billboard />
       <div className='pb-40'>
