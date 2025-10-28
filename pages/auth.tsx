@@ -10,7 +10,10 @@ import {FcGoogle} from 'react-icons/fc';
 import {FaGithub} from 'react-icons/fa';
 import { useRouter } from "next/router";
 
-
+// import { TextEncoder, TextDecoder } from 'text-encoder';
+// require('TextEncoder, TextDecoder');
+// global.TextEncoder = TextEncoder;
+// global.TextDecoder = TextDecoder;
 export async function getServerSideProps(context: NextPageContext) {
     const session = await getSession(context);
   

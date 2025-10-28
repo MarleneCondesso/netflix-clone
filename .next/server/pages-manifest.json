@@ -2,11 +2,13 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/api/auth/[...nextauth]": "pages/api/auth/[...nextauth].js",
-  "/": "pages/index.js",
   "/auth": "pages/auth.js",
-  "/api/random": "pages/api/random.js",
+  "/profiles": "pages/profiles.js",
   "/api/current": "pages/api/current.js",
+  "/api/register": "pages/api/register.js",
+  "/api/random": "pages/api/random.js",
   "/api/movies": "pages/api/movies.js",
-  "/api/favorites": "pages/api/favorites.js"
+  "/api/auth/[...nextauth]": "pages/api/auth/[...nextauth].js",
+  "/api/favorites": "pages/api/favorites.js",
+  "/": "pages/index.js"
 }
